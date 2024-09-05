@@ -3,3 +3,7 @@
 > tsc {filename}.ts // Compiles to `.js` files
 
 A `--strict` flag will enable stricter checks
+
+# Running
+
+> node {filename}.js
