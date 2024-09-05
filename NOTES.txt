@@ -1,0 +1,3 @@
+Compiling:
+
+tsc {filename}.ts // Compiles to `.js` files
