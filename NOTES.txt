@@ -1,3 +1,5 @@
-Compiling:
+# Compiling
 
-tsc {filename}.ts // Compiles to `.js` files
+> tsc {filename}.ts // Compiles to `.js` files
+
+A `--strict` flag will enable stricter checks
