@@ -4,7 +4,6 @@
     "rootDir": "src",
     "outDir": "dist",
     "strict": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext"
+    "module": "es2022"
   }
 }
