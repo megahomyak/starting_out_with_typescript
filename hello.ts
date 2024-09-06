@@ -1,24 +1,27 @@
-interface Person {
-    name: string,
+type Response_ =
+    | { status: 400, errorText: string }
+    | { status: 200, responseText: string };
 
-    getName(): string;
-}
-
-class Mike implements Person {
-    name: string;
-
-    constructor() {
-        this.name = "Mike";
+function getResponse(): Response_ {
+    if (Math.random() > 0.5) {
+        return {
+            status: 400,
+            errorText: "error",
+        }
+    } else {
+        return {
+            status: 200,
+            responseText: "success",
+        }
     }
-
-    getName() {
-        return this.name;
-    }
 }
+let resp = getResponse();
 
-function sayHello(recipient: Person): void {
-    console.log(`Hello, ${recipient.name}!`);
-    console.log(`Hello again, ${recipient.getName()}!`);
+switch (resp.status) {
+    case 200:
+        console.log(resp.responseText);
+        break;
+    case 400:
+        console.log(resp.errorText);
+        break;
 }
-
-sayHello(new Mike());

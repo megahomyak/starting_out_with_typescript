@@ -1,15 +1,24 @@
 "use strict";
-var Mike = /** @class */ (function () {
-    function Mike() {
-        this.name = "Mike";
+function getResponse() {
+    if (Math.random() > 0.5) {
+        return {
+            status: 400,
+            errorText: "error",
+        };
     }
-    Mike.prototype.getName = function () {
-        return this.name;
-    };
-    return Mike;
-}());
-function sayHello(recipient) {
-    console.log("Hello, ".concat(recipient.name, "!"));
-    console.log("Hello again, ".concat(recipient.getName(), "!"));
+    else {
+        return {
+            status: 200,
+            responseText: "success",
+        };
+    }
 }
-sayHello(new Mike());
+var resp = getResponse();
+switch (resp.status) {
+    case 200:
+        console.log(resp.responseText);
+        break;
+    case 400:
+        console.log(resp.errorText);
+        break;
+}
