@@ -1,5 +1,15 @@
 "use strict";
-function sayHello(recipientName) {
-    console.log("Hello, ".concat(recipientName, "!"));
+var Mike = /** @class */ (function () {
+    function Mike() {
+        this.name = "Mike";
+    }
+    Mike.prototype.getName = function () {
+        return this.name;
+    };
+    return Mike;
+}());
+function sayHello(recipient) {
+    console.log("Hello, ".concat(recipient.name, "!"));
+    console.log("Hello again, ".concat(recipient.getName(), "!"));
 }
-sayHello("Mike");
+sayHello(new Mike());
