@@ -1,9 +1,17 @@
-# Compiling
+# Compiling individual files
 
 > tsc {filename}.ts // Compiles to `.js` files
 
 A `--strict` flag will enable stricter checks
 
+# Compiling the entire project (the settings are in the `tsconfig.json` file)
+
+> tsc
+
 # Running
 
 > node {filename}.js
+
+# Installing packages
+
+> npm install {packagename}
