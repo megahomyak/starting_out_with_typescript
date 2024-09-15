@@ -6,18 +6,17 @@ COPY package.json bun.lockb .
 RUN bun install --production --frozen-lockfile
 
 COPY app app
-RUN bun build app/start.ts --minify --outdir dist --target bun
+RUN bun build app/start.ts --compile --outfile executable
 
 
-FROM oven/bun:1.1.27-slim AS production
+FROM debian:trixie-20240904-slim AS production
 
 WORKDIR /app
 
 COPY resources resources
-COPY --from=build /app/node_modules node_modules
-COPY --from=build /app/dist dist
+COPY --from=build /app/executable executable
 
-CMD ["bun", "run", "dist/start.js"]
+CMD ["./executable"]
 
 
 FROM production AS development
