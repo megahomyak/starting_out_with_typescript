@@ -3,7 +3,7 @@ FROM oven/bun:1.1.27-slim AS build
 WORKDIR /app
 
 COPY package.json bun.lockb .
-RUN bun install
+RUN bun install --production --frozen-lockfile
 
 COPY app app
 RUN bun build app/start.ts --minify --outdir dist --target bun
