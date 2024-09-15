@@ -16,4 +16,13 @@ bot.on("message", (message) => {
     console.log(message.text);
 });
 
+process.on("SIGTERM", () => {
+    (async function() {
+        await bot.stopPolling();
+        console.log("AAAAAAAAAAAAAAAAAAAAAa");
+        console.log(bot.isPolling());
+        console.log("BBBBBBBBBBBBBBBBB");
+    }()).then(() => process.exit(0));
+});
+
 bot.startPolling();
