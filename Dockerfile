@@ -11,7 +11,7 @@ RUN bun build app/start.ts --outdir dist --target node
 
 FROM node:hydrogen-alpine3.20 AS production
 
-WORKDIR app
+WORKDIR /app
 
 COPY resources resources
 COPY --from=build /app/node_modules node_modules
