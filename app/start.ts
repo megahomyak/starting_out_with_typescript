@@ -8,7 +8,7 @@ const Config = s.object({
     token: s.string(),
 });
 
-const config = s.create(JSON.parse(fs.readFileSync("config.json", "utf-8")), Config);
+const config = s.create(JSON.parse(fs.readFileSync("resources/config.json", "utf-8")), Config);
 
 const bot = new TelegramBot(config.token);
 

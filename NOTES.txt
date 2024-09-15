@@ -1,3 +1,5 @@
+========== WITH NODE.JS AND TSC ==========
+
 # Compiling individual files
 
 > tsc {filename}.ts // Compiles to `.js` files
@@ -15,3 +17,9 @@ A `--strict` flag will enable stricter checks
 # Installing packages
 
 > npm install {packagename}
+
+========== WITH BUN ==========
+
+> bun run filename // Run a TS/JS script
+
+> bun build --minify --outdir dist // Build the program

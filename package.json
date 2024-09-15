@@ -1,7 +1,1 @@
-{
-  "dependencies": {
-    "@types/node-telegram-bot-api": "^0.64.7",
-    "node-telegram-bot-api": "^0.66.0",
-    "superstruct": "^2.0.2"
-  }
-}
+{ "dependencies": { "@types/node-telegram-bot-api": "^0.64.7", "node-telegram-bot-api": "^0.66.0", "superstruct": "^2.0.2" } }
