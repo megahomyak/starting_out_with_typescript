@@ -1,23 +1,24 @@
-import TelegramBot from "node-telegram-bot-api";
+import { Telegraf } from "telegraf";
 
 import * as fs from "fs";
 
-import * as s from "superstruct";
+import * as superstruct from "superstruct";
 
-const Config = s.object({
-    token: s.string(),
+const Config = superstruct.object({
+    token: superstruct.string(),
 });
 
-const config = s.create(JSON.parse(fs.readFileSync("resources/config.json", "utf-8")), Config);
+const config = superstruct.create(JSON.parse(fs.readFileSync("resources/config.json", "utf-8")), Config);
 
-const bot = new TelegramBot(config.token);
+const bot = new Telegraf(config.token);
 
-bot.on("message", (message) => {
-    console.log(message.text);
+bot.on("message", (ctx) => {
+    console.log(ctx.text);
 });
 
-process.on("SIGTERM", () => {
-    bot.stopPolling().then(() => process.exit(0));
+process.once("SIGTERM", () => {
+    bot.stop("SIGTERM");
+    process.exit(0);
 });
 
-bot.startPolling();
+bot.launch();
