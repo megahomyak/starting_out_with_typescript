@@ -8,6 +8,10 @@ RUN bun install --production --frozen-lockfile
 COPY app app
 RUN bun build app/start.ts --outdir dist --target node
 
+RUN apk add curl
+RUN curl -sf https://gobinaries.com/tj/node-prune | sh
+RUN node-prune
+
 
 FROM alpine:3.20.3 AS production
 
