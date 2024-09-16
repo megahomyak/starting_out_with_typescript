@@ -1,5 +1,6 @@
 services:
   server:
+    stop_grace_period: 30s
     build:
       target: production
       context: .
